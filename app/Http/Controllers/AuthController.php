@@ -47,7 +47,7 @@ class AuthController extends Controller
                 'city'              => 'required|string|max:255',
                 'zip'               => 'nullable|string|max:10',
                 'address'           => 'nullable|string|max:500',
-                'profile_picture'   => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+                //'profile_picture'   => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
             ]);
 
             $profilePicturePath = null;
@@ -66,7 +66,7 @@ class AuthController extends Controller
             $user->city = $validated['city'];
             $user->zip = $validated['zip'];
             $user->address = $validated['address'];
-            $user->profile_picture = $profilePicturePath;
+            //$user->profile_picture = $profilePicturePath;
             $user->save();
 
             return redirect()->route('user-profile')->with('success', 'Registration successful!');
