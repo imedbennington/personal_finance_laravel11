@@ -789,7 +789,8 @@
                     <div class="user-box dropdown px-3">
                         <a class="d-flex align-items-center nav-link dropdown-toggle gap-3 dropdown-toggle-nocaret"
                             href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            <img src="assets/images/avatars/avatar-2.png" class="user-img" alt="user avatar">
+                            <img src="{{ auth()->user()->profile_picture ? asset('storage/' . auth()->user()->profile_picture) : asset('assets/images/avatars/avatar-2.png') }}"
+                                class="user-img" alt="user avatar">
                         </a>
                         <div class="user-info">
                             @if (isset($usr))
@@ -866,15 +867,8 @@
                                 <div class="card">
                                     <div class="card-body">
                                         <div class="d-flex flex-column align-items-center text-center">
-                                            <img src="assets/images/avatars/avatar-2.png" alt="Admin"
-                                                class="rounded-circle p-1 bg-primary" width="110">
-                                            <div class="mt-3">
-                                                <h4>John Doe</h4>
-                                                <p class="text-secondary mb-1">Full Stack Developer</p>
-                                                <p class="text-muted font-size-sm">Bay Area, San Francisco, CA</p>
-                                                <button class="btn btn-primary">Follow</button>
-                                                <button class="btn btn-outline-primary">Message</button>
-                                            </div>
+                                            <img src="{{ auth()->user()->profile_picture ? asset('storage/' . auth()->user()->profile_picture) : asset('assets/images/avatars/avatar-2.png') }}"
+                                                alt="Admin" class="bg-primary" width="300" height="300">
                                         </div>
                                         <hr class="my-4" />
                                         <ul class="list-group list-group-flush">
@@ -978,8 +972,7 @@
                                                 <h6 class="mb-0">Phone</h6>
                                             </div>
                                             <div class="col-sm-9 text-secondary">
-                                                <input type="text" class="form-control"
-                                                    value="(239) 816-9029" />
+                                                <input type="text" class="form-control" value="(239) 816-9029" />
                                             </div>
                                         </div>
                                         <div class="row mb-3">
@@ -987,8 +980,7 @@
                                                 <h6 class="mb-0">Mobile</h6>
                                             </div>
                                             <div class="col-sm-9 text-secondary">
-                                                <input type="text" class="form-control"
-                                                    value="(320) 380-4539" />
+                                                <input type="text" class="form-control" value="(320) 380-4539" />
                                             </div>
                                         </div>
                                         <div class="row mb-3">
@@ -1013,38 +1005,37 @@
                                     <div class="col-sm-12">
                                         <div class="card">
                                             <div class="card-body">
-                                                <h5 class="d-flex align-items-center mb-3">Project Status</h5>
-                                                <p>Web Design</p>
+                                                <h5 class="d-flex align-items-center mb-3">Status</h5>
+                                                <p>Monthly Income</p>
                                                 <div class="progress mb-3" style="height: 5px">
                                                     <div class="progress-bar bg-primary" role="progressbar"
-                                                        style="width: 80%" aria-valuenow="80" aria-valuemin="0"
-                                                        aria-valuemax="100"></div>
+                                                        style="width: {{ $monthlyIncomePercentage }}%"
+                                                        aria-valuenow="{{ $monthlyIncomePercentage }}"
+                                                        aria-valuemin="0" aria-valuemax="100"></div>
                                                 </div>
-                                                <p>Website Markup</p>
-                                                <div class="progress mb-3" style="height: 5px">
-                                                    <div class="progress-bar bg-danger" role="progressbar"
-                                                        style="width: 72%" aria-valuenow="72" aria-valuemin="0"
-                                                        aria-valuemax="100"></div>
+                                                <p>Monthly Expense</p>
+                                                <div class="progress-bar bg-primary" role="progressbar"
+                                                    style="width: {{ $monthlyIncomePercentage }}%"
+                                                    aria-valuenow="{{ $monthlyIncomePercentage }}" aria-valuemin="0"
+                                                    aria-valuemax="100">
                                                 </div>
-                                                <p>One Page</p>
+
+                                                <p>Yearly Income</p>
                                                 <div class="progress mb-3" style="height: 5px">
                                                     <div class="progress-bar bg-success" role="progressbar"
-                                                        style="width: 89%" aria-valuenow="89" aria-valuemin="0"
-                                                        aria-valuemax="100"></div>
+                                                        style="width: {{ $yearlyIncomePercentage }}%"
+                                                        aria-valuenow="{{ $yearlyIncomePercentage }}"
+                                                        aria-valuemin="0" aria-valuemax="100"></div>
                                                 </div>
-                                                <p>Mobile Template</p>
-                                                <div class="progress mb-3" style="height: 5px">
-                                                    <div class="progress-bar bg-warning" role="progressbar"
-                                                        style="width: 55%" aria-valuenow="55" aria-valuemin="0"
-                                                        aria-valuemax="100"></div>
-                                                </div>
-                                                <p>Backend API</p>
+                                                <p>Yearly Expense</p>
                                                 <div class="progress" style="height: 5px">
-                                                    <div class="progress-bar bg-info" role="progressbar"
-                                                        style="width: 66%" aria-valuenow="66" aria-valuemin="0"
-                                                        aria-valuemax="100"></div>
+                                                    <div class="progress-bar bg-warning" role="progressbar"
+                                                        style="width: {{ $yearlyExpensePercentage }}%"
+                                                        aria-valuenow="{{ $yearlyExpensePercentage }}"
+                                                        aria-valuemin="0" aria-valuemax="100"></div>
                                                 </div>
                                             </div>
+
                                         </div>
                                     </div>
                                 </div>
@@ -1073,8 +1064,8 @@
             <div class="modal-content">
                 <div class="modal-header gap-2">
                     <div class="position-relative popup-search w-100">
-                        <input class="form-control form-control-lg ps-5 border border-3 border-primary"
-                            type="search" placeholder="Search">
+                        <input class="form-control form-control-lg ps-5 border border-3 border-primary" type="search"
+                            placeholder="Search">
                         <span
                             class="position-absolute top-50 search-show ms-3 translate-middle-y start-0 top-50 fs-4"><i
                                 class='bx bx-search'></i></span>
@@ -1167,8 +1158,7 @@
             <hr />
             <div class="d-flex align-items-center justify-content-between">
                 <div class="form-check">
-                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="lightmode"
-                        checked>
+                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="lightmode" checked>
                     <label class="form-check-label" for="lightmode">Light</label>
                 </div>
                 <div class="form-check">

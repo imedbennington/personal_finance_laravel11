@@ -7,6 +7,7 @@ use App\Http\Controllers\AccountController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\TransactionController;
 use App\Http\Controllers\BudgetController;
+use App\Http\Controllers\UserProfileController;
 Route::get('/', function () {
     return view('Users Frontend Theme.index');
 });
@@ -14,6 +15,9 @@ Route::get('/', function () {
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
+
+
+Route::get('/user-profile', [UserProfileController::class, 'index'])->name('user.profile');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -64,4 +68,10 @@ Route::post('/registeration_account', [AuthController::class, 'register_account'
 Route::get('/user-profile', function () {
     return view('Users Frontend Theme.user-profile');
 })->name('user-profile');
-Route::get('/user-profile', [AuthController::class, 'get_info'])->name('user-profile');
+//Route::get('/user-profile', [AuthController::class, 'get_info'])->name('user-profile');
+Route::get('user-profile', [UserProfileController::class, 'index'])->name('user.profile');
+
+Route::get('/error', function () {
+    // You can return a view or any other content for the error page.
+    return view('error')->with('error', session('error'));
+})->name('error.page');

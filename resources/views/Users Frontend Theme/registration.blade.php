@@ -678,11 +678,11 @@
                                 </ul>
                             </div>
                         @endif
-                    <form class="row g-3" method="POST" action="{{ route('registeration_account') }}">
+                    <form class="row g-3" method="POST" action="{{ route('registeration_account') }}" enctype="multipart/form-data">
                         @csrf
                         <div class="col-md-6">
                             <label for="input1" class="form-label">First Name</label>
-                            <input type="text" class="form-control" id="input1" placeholder="First Name" name="first_name">
+                            <input type="text" class="form-control" id="input1" placeholder="First Name" name="name">
                         </div>
                         <div class="col-md-6">
                             <label for="input2" class="form-label">Last Name</label>
@@ -732,6 +732,12 @@
                         <div class="col-md-12">
                             <label for="input11" class="form-label">Address</label>
                             <textarea class="form-control" id="input11" placeholder="Address ..." rows="3" name="address"></textarea>
+                        </div>
+                        <div class="col-md-12 mt-3">
+                            <label for="profilePicture" class="form-label">Profile Picture</label>
+                            <div class="input-group">
+                                <input type="file" class="form-control" id="profilePicture" name="profile_picture" accept="image/jpeg, image/png, image/jpg, image/gif">
+                            </div>
                         </div>
                         <div class="col-md-12">
                             <div class="d-md-flex d-grid align-items-center gap-3">

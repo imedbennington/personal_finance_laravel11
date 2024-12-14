@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Account;
 use App\Models\Category;
 use App\Models\Transaction;
+use Carbon\Carbon;
 class TransactionController extends Controller
 {
     /**
@@ -14,7 +15,7 @@ class TransactionController extends Controller
     public function index()
     {
         $transactions = Transaction::all();
-        return view('Users Frontend Theme.transactions.get_transactions', compact('transactions'));
+        return view('Users Frontend Theme.transactions.get_transactions', compact('transactions', ));
     }
 
     /**
