@@ -7,10 +7,12 @@ use App\Models\Transaction;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Auth;
+use App\Models\User;
 class UserProfileController extends Controller
 {
     public function index()
     {
+
         try {
             // Log the beginning of the process
             Log::debug('Starting the index method in UserProfileController.');
@@ -72,7 +74,7 @@ class UserProfileController extends Controller
             $usr = Auth::user();
         //dd($usr);
             // Pass data to the view
-            return view('Users Frontend Theme.user-profile', compact(
+            return view('Users Frontend Theme.stats.view-stats', compact(
                 'monthlyIncomePercentage', 'monthlyExpensePercentage',
                 'yearlyIncomePercentage', 'yearlyExpensePercentage', 'usr'
             ));
@@ -87,6 +89,10 @@ class UserProfileController extends Controller
             // Redirect with an error message
             return redirect()->route('error.page')->with('error', 'There was an issue calculating your stats. Please try again later.');
         }
-
 }
+
+/*public function return_view (){
+    $user = auth()->user();
+    return view ('Users Frontend Theme.stats.view-stats', compact ('user'));
+}*/
 }

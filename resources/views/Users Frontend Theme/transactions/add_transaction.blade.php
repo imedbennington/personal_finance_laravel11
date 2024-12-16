@@ -1,16 +1,5 @@
 @extends('layouts.app')
 
-@section('title', 'Add category')
-
-@section('css')
-
-<style>
-    .card {
-        margin-top: 100px; /* Adds spacing under the header */
-    }
-</style>
-
-@endsection
 
 @section('content')
 <div class="row full-height">
@@ -33,7 +22,7 @@
     <form method="post" action="{{ route('transactions.store') }}">
         @csrf
 
-        <input type="text" name="user_id" value="{{ auth()->user()->id }}">
+        <input type="hidden" name="user_id" value="{{ auth()->user()->id }}">
 
         {{-- Account Dropdown --}}
         <div class="mb-3">

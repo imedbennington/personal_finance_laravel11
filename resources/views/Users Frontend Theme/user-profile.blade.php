@@ -36,10 +36,10 @@
         <div class="sidebar-wrapper" data-simplebar="true">
             <div class="sidebar-header">
                 <div>
-                    <img src="assets/images/logo-icon.png" class="logo-icon" alt="logo icon">
+                    <img src="assets/images/comptabilite.png" class="logo-icon" alt="logo icon">
                 </div>
                 <div>
-                    <h4 class="logo-text">Rocker</h4>
+                    <h4 class="logo-text">Perso finance</h4>
                 </div>
                 <div class="toggle-icon ms-auto"><i class='bx bx-arrow-back'></i>
                 </div>
@@ -83,6 +83,19 @@
                         <li>
                             <a href="{{ route('categories.index') }}">
                                 <i class='bx bx-radio-circle'></i>View categories
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="javascript:;" class="has-arrow">
+                        <div class="parent-icon"><i class="fa-solid fa-piggy-bank"></i></div>
+                        <div class="menu-title">My stats</div>
+                    </a>
+                    <ul>
+                        <li>
+                            <a href="{{ route('stats.view') }}">
+                                <i class='bx bx-radio-circle'></i>View stats
                             </a>
                         </li>
                     </ul>
@@ -842,22 +855,6 @@
                             </ol>
                         </nav>
                     </div>
-                    <div class="ms-auto">
-                        <div class="btn-group">
-                            <button type="button" class="btn btn-primary">Settings</button>
-                            <button type="button"
-                                class="btn btn-primary split-bg-primary dropdown-toggle dropdown-toggle-split"
-                                data-bs-toggle="dropdown"> <span class="visually-hidden">Toggle Dropdown</span>
-                            </button>
-                            <div class="dropdown-menu dropdown-menu-right dropdown-menu-lg-end"> <a
-                                    class="dropdown-item" href="javascript:;">Action</a>
-                                <a class="dropdown-item" href="javascript:;">Another action</a>
-                                <a class="dropdown-item" href="javascript:;">Something else here</a>
-                                <div class="dropdown-divider"></div> <a class="dropdown-item"
-                                    href="javascript:;">Separated link</a>
-                            </div>
-                        </div>
-                    </div>
                 </div>
                 <!--end breadcrumb-->
                 <div class="container">
@@ -871,172 +868,79 @@
                                                 alt="Admin" class="bg-primary" width="300" height="300">
                                         </div>
                                         <hr class="my-4" />
-                                        <ul class="list-group list-group-flush">
-                                            <li
-                                                class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
-                                                <h6 class="mb-0"><svg xmlns="http://www.w3.org/2000/svg"
-                                                        width="24" height="24" viewBox="0 0 24 24"
-                                                        fill="none" stroke="currentColor" stroke-width="2"
-                                                        stroke-linecap="round" stroke-linejoin="round"
-                                                        class="feather feather-globe me-2 icon-inline">
-                                                        <circle cx="12" cy="12" r="10"></circle>
-                                                        <line x1="2" y1="12" x2="22"
-                                                            y2="12"></line>
-                                                        <path
-                                                            d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z">
-                                                        </path>
-                                                    </svg>Website</h6>
-                                                <span class="text-secondary">https://codervent.com</span>
-                                            </li>
-                                            <li
-                                                class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
-                                                <h6 class="mb-0"><svg xmlns="http://www.w3.org/2000/svg"
-                                                        width="24" height="24" viewBox="0 0 24 24"
-                                                        fill="none" stroke="currentColor" stroke-width="2"
-                                                        stroke-linecap="round" stroke-linejoin="round"
-                                                        class="feather feather-github me-2 icon-inline">
-                                                        <path
-                                                            d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22">
-                                                        </path>
-                                                    </svg>Github</h6>
-                                                <span class="text-secondary">codervent</span>
-                                            </li>
-                                            <li
-                                                class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
-                                                <h6 class="mb-0"><svg xmlns="http://www.w3.org/2000/svg"
-                                                        width="24" height="24" viewBox="0 0 24 24"
-                                                        fill="none" stroke="currentColor" stroke-width="2"
-                                                        stroke-linecap="round" stroke-linejoin="round"
-                                                        class="feather feather-twitter me-2 icon-inline text-info">
-                                                        <path
-                                                            d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z">
-                                                        </path>
-                                                    </svg>Twitter</h6>
-                                                <span class="text-secondary">@codervent</span>
-                                            </li>
-                                            <li
-                                                class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
-                                                <h6 class="mb-0"><svg xmlns="http://www.w3.org/2000/svg"
-                                                        width="24" height="24" viewBox="0 0 24 24"
-                                                        fill="none" stroke="currentColor" stroke-width="2"
-                                                        stroke-linecap="round" stroke-linejoin="round"
-                                                        class="feather feather-instagram me-2 icon-inline text-danger">
-                                                        <rect x="2" y="2" width="20" height="20"
-                                                            rx="5" ry="5"></rect>
-                                                        <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z">
-                                                        </path>
-                                                        <line x1="17.5" y1="6.5" x2="17.51"
-                                                            y2="6.5"></line>
-                                                    </svg>Instagram</h6>
-                                                <span class="text-secondary">codervent</span>
-                                            </li>
-                                            <li
-                                                class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
-                                                <h6 class="mb-0"><svg xmlns="http://www.w3.org/2000/svg"
-                                                        width="24" height="24" viewBox="0 0 24 24"
-                                                        fill="none" stroke="currentColor" stroke-width="2"
-                                                        stroke-linecap="round" stroke-linejoin="round"
-                                                        class="feather feather-facebook me-2 icon-inline text-primary">
-                                                        <path
-                                                            d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z">
-                                                        </path>
-                                                    </svg>Facebook</h6>
-                                                <span class="text-secondary">codervent</span>
-                                            </li>
-                                        </ul>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-lg-8">
                                 <div class="card">
                                     <div class="card-body">
-                                        <div class="row mb-3">
-                                            <div class="col-sm-3">
-                                                <h6 class="mb-0">Full Name</h6>
-                                            </div>
-                                            <div class="col-sm-9 text-secondary">
-                                                <input type="text" class="form-control" value="John Doe" />
-                                            </div>
-                                        </div>
-                                        <div class="row mb-3">
-                                            <div class="col-sm-3">
-                                                <h6 class="mb-0">Email</h6>
-                                            </div>
-                                            <div class="col-sm-9 text-secondary">
-                                                <input type="text" class="form-control"
-                                                    value="john@example.com" />
-                                            </div>
-                                        </div>
-                                        <div class="row mb-3">
-                                            <div class="col-sm-3">
-                                                <h6 class="mb-0">Phone</h6>
-                                            </div>
-                                            <div class="col-sm-9 text-secondary">
-                                                <input type="text" class="form-control" value="(239) 816-9029" />
-                                            </div>
-                                        </div>
-                                        <div class="row mb-3">
-                                            <div class="col-sm-3">
-                                                <h6 class="mb-0">Mobile</h6>
-                                            </div>
-                                            <div class="col-sm-9 text-secondary">
-                                                <input type="text" class="form-control" value="(320) 380-4539" />
-                                            </div>
-                                        </div>
-                                        <div class="row mb-3">
-                                            <div class="col-sm-3">
-                                                <h6 class="mb-0">Address</h6>
-                                            </div>
-                                            <div class="col-sm-9 text-secondary">
-                                                <input type="text" class="form-control"
-                                                    value="Bay Area, San Francisco, CA" />
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-sm-3"></div>
-                                            <div class="col-sm-9 text-secondary">
-                                                <input type="button" class="btn btn-primary px-4"
-                                                    value="Save Changes" />
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-sm-12">
-                                        <div class="card">
-                                            <div class="card-body">
-                                                <h5 class="d-flex align-items-center mb-3">Status</h5>
-                                                <p>Monthly Income</p>
-                                                <div class="progress mb-3" style="height: 5px">
-                                                    <div class="progress-bar bg-primary" role="progressbar"
-                                                        style="width: {{ $monthlyIncomePercentage }}%"
-                                                        aria-valuenow="{{ $monthlyIncomePercentage }}"
-                                                        aria-valuemin="0" aria-valuemax="100"></div>
-                                                </div>
-                                                <p>Monthly Expense</p>
-                                                <div class="progress-bar bg-primary" role="progressbar"
-                                                    style="width: {{ $monthlyIncomePercentage }}%"
-                                                    aria-valuenow="{{ $monthlyIncomePercentage }}" aria-valuemin="0"
-                                                    aria-valuemax="100">
-                                                </div>
 
-                                                <p>Yearly Income</p>
-                                                <div class="progress mb-3" style="height: 5px">
-                                                    <div class="progress-bar bg-success" role="progressbar"
-                                                        style="width: {{ $yearlyIncomePercentage }}%"
-                                                        aria-valuenow="{{ $yearlyIncomePercentage }}"
-                                                        aria-valuemin="0" aria-valuemax="100"></div>
+                                        <form class="row g-3" method="POST" action="{{ route('update_account', $usr->id) }}" enctype="multipart/form-data">
+                                            @csrf
+                                            @method('PUT') <!-- Add the PUT method for updates -->
+                                            <div class="col-md-6">
+                                                <label for="input1" class="form-label">First Name</label>
+                                                <input type="text" class="form-control" id="input1" placeholder="First Name" name="name" value="{{ old('name', $usr->name) }}">
+                                            </div>
+                                            <div class="col-md-6">
+                                                <label for="input2" class="form-label">Last Name</label>
+                                                <input type="text" class="form-control" id="input2" placeholder="Last Name" name="last_name" value="{{ old('last_name', $usr->last_name) }}">
+                                            </div>
+                                            <div class="col-md-12">
+                                                <label for="input3" class="form-label">Phone</label>
+                                                <input type="text" class="form-control" id="input3" placeholder="Phone" name="phone" value="{{ old('phone', $usr->phone) }}">
+                                            </div>
+                                            <div class="col-md-12">
+                                                <label for="input4" class="form-label">Email</label>
+                                                <input type="email" class="form-control" id="input4" placeholder="Email" name="email" value="{{ old('email', $usr->email) }}">
+                                            </div>
+                                            <div class="col-md-12">
+                                                <label for="input5" class="form-label">Password</label>
+                                                <input type="password" class="form-control" id="input5" placeholder="Password" name="password">
+                                                <small class="form-text text-muted">Leave blank to keep the current password.</small>
+                                            </div>
+                                            <div class="col-md-12">
+                                                <label for="input6" class="form-label">DOB</label>
+                                                <input type="date" class="form-control datepicker" name="dob" value="{{ old('dob', $usr->dob) }}">
+                                            </div>
+                                            <div class="col-md-12">
+                                                <label for="input7" class="form-label">Country</label>
+                                                <select id="input7" class="form-select" name="country">
+                                                    <option selected>Choose...</option>
+                                                    <option value="Tunisie" {{ $usr->country == 'Tunisie' ? 'selected' : '' }}>Tunisie</option>
+                                                    <option value="Italy" {{ $usr->country == 'Italy' ? 'selected' : '' }}>Italy</option>
+                                                    <option value="USA" {{ $usr->country == 'USA' ? 'selected' : '' }}>USA</option>
+                                                </select>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <label for="input8" class="form-label">City</label>
+                                                <input type="text" class="form-control" id="input8" placeholder="City" name="city" value="{{ old('city', $usr->city) }}">
+                                            </div>
+                                            <div class="col-md-2">
+                                                <label for="input10" class="form-label">Zip</label>
+                                                <input type="text" class="form-control" id="input10" placeholder="Zip" name="zip" value="{{ old('zip', $usr->zip) }}">
+                                            </div>
+                                            <div class="col-md-12">
+                                                <label for="input11" class="form-label">Address</label>
+                                                <textarea class="form-control" id="input11" placeholder="Address ..." rows="3" name="address">{{ old('address', $usr->address) }}</textarea>
+                                            </div>
+                                            <div class="col-md-12 mt-3">
+                                                <label for="profilePicture" class="form-label">Profile Picture</label>
+                                                <div class="input-group">
+                                                    <input type="file" class="form-control" id="profilePicture" name="profile_picture" accept="image/jpeg, image/png, image/jpg, image/gif">
                                                 </div>
-                                                <p>Yearly Expense</p>
-                                                <div class="progress" style="height: 5px">
-                                                    <div class="progress-bar bg-warning" role="progressbar"
-                                                        style="width: {{ $yearlyExpensePercentage }}%"
-                                                        aria-valuenow="{{ $yearlyExpensePercentage }}"
-                                                        aria-valuemin="0" aria-valuemax="100"></div>
+                                                @if($usr->profile_picture)
+                                                    <img src="{{ asset('storage/' . $usr->profile_picture) }}" alt="Current Profile Picture" class="img-thumbnail mt-2" width="150">
+                                                @endif
+                                            </div>
+                                            <div class="col-md-12">
+                                                <div class="d-md-flex d-grid align-items-center gap-3">
+                                                    <button type="submit" class="btn btn-primary px-4">Update</button>
+                                                    <button type="reset" class="btn btn-light px-4">Reset</button>
                                                 </div>
                                             </div>
+                                        </form>
 
-                                        </div>
                                     </div>
                                 </div>
                             </div>

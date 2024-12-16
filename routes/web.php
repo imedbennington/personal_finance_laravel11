@@ -59,6 +59,7 @@ Route::delete('/budgets/{budget}', [TransactionController::class, 'destroy'])->n
 // Custom Registration Route
 Route::get('register', [AuthController::class, 'showRegistrationForm'])->name('register');
 Route::get('login_user', [AuthController::class, 'showLoginForm'])->name('login_user');
+Route::put('users/{id}', [AuthController::class, 'update'])->name('update_account');
 
 // This line should be removed if you are not using Laravel's default auth routes
 // require __DIR__.'/auth.php';
@@ -70,6 +71,8 @@ Route::get('/user-profile', function () {
 })->name('user-profile');
 //Route::get('/user-profile', [AuthController::class, 'get_info'])->name('user-profile');
 Route::get('user-profile', [UserProfileController::class, 'index'])->name('user.profile');
+//stats
+Route::get('stats', [UserProfileController::class, 'index'])->name('stats.view');
 
 Route::get('/error', function () {
     // You can return a view or any other content for the error page.

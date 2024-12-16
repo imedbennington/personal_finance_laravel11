@@ -83,4 +83,33 @@ class AuthController extends Controller
         //dd($usr);
         return view('Users Frontend Theme.user-profile', compact('usr'));
     }
+
+
+    public function update(Request $request, $id)
+    {
+        $user = User::findOrFail($id);
+
+        $validated = $request->validate([
+            'name' => 'required|string|max:255',
+            'last_name' => 'required|string|max:255',
+            'phone' => 'nullable|string|max:15',
+            'email' => 'required|email|unique:users,email,' . $user->id,
+            'password' => 'nullable|min:8|confirmed',
+            'dob' => 'nullable|date',
+            'country' => 'nullable|string',
+            'city' => 'nullable|string',
+            'zip' => 'nullable|string|max:10',
+            'address' => 'nullable|string',
+            'profile_picture' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+        ]);
+
+        $user->update($validated);
+
+        if ($request->hasFile('profile_picture')) {
+            $path = $request->file('profile_picture')->store('profile_pictures', 'public');
+            $user->update(['profile_picture' => $path]);
+        }
+
+        return redirect()->route('user.profile', $user->id)->with('success', 'User updated successfully.');
+    }
 }

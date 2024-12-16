@@ -125,8 +125,11 @@ $category = Category::find($request->category_id);
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Transaction $transaction)
     {
-        //
+        $transaction->delete();
+
+        return redirect()->route('transactions.index')
+            ->with('success', 'Transaction deleted successfully.');
     }
 }

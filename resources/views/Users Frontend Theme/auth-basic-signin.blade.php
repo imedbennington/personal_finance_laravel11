@@ -16,11 +16,12 @@
 	<script src="assets/js/pace.min.js"></script>
 	<!-- Bootstrap CSS -->
 	<link href="assets/css/bootstrap.min.css" rel="stylesheet">
+
 	<link href="assets/css/bootstrap-extended.css" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
 	<link href="assets/css/app.css" rel="stylesheet">
 	<link href="assets/css/icons.css" rel="stylesheet">
-	<title>Rocker - Bootstrap 5 Admin Dashboard Template</title>
+	<title>Perso finance - Bootstrap 5 Admin Dashboard Template</title>
 </head>
 
 <body class="">
@@ -34,10 +35,10 @@
 							<div class="card-body">
 								<div class="p-4">
 									<div class="mb-3 text-center">
-										<img src="assets/images/logo-icon.png" width="60" alt="" />
+										<img src="assets/images/comptabilite.png" width="60" alt="" />
 									</div>
 									<div class="text-center mb-4">
-										<h5 class="">Rocker Admin</h5>
+
 										<p class="mb-0">Please log in to your account</p>
 									</div>
 									<div class="form-body">
