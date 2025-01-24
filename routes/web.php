@@ -52,10 +52,10 @@ Route::delete('/transactions/{transaction}', [TransactionController::class, 'des
 //***********************budgets routs *********************************** */
 Route::get('budgets/create', [BudgetController::class, 'create'])->name('budgets.create');
 Route::post('budgets/store', [BudgetController::class, 'store'])->name('budgets.store');
-Route::get('budgets/index', [BudgetController::class, 'index'])->name('budgets.index');
+Route::get('/budgets/index', [BudgetController::class, 'index'])->name('budgets.index');
 Route::get('budgets/{id}/edit', [BudgetController::class, 'edit'])->name('budgets.edit');
 Route::put('budgets/{id}', [BudgetController::class, 'update'])->name('budgets.update');
-Route::delete('/budgets/{budget}', [TransactionController::class, 'destroy'])->name('budgets.destroy');
+Route::delete('/budgets/{budget}', [BudgetController::class, 'destroy'])->name('budgets.destroy');
 // Custom Registration Route
 Route::get('register', [AuthController::class, 'showRegistrationForm'])->name('register');
 Route::get('login_user', [AuthController::class, 'showLoginForm'])->name('login_user');
@@ -70,7 +70,7 @@ Route::get('/user-profile', function () {
     return view('Users Frontend Theme.user-profile');
 })->name('user-profile');
 //Route::get('/user-profile', [AuthController::class, 'get_info'])->name('user-profile');
-Route::get('user-profile', [UserProfileController::class, 'index'])->name('user.profile');
+Route::get('user.profile', [UserProfileController::class, 'index'])->name('user.profile');
 //stats
 Route::get('stats', [UserProfileController::class, 'index'])->name('stats.view');
 

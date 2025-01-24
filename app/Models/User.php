@@ -26,6 +26,7 @@ class User extends Authenticatable
         'city',
         'zip',
         'address',
+        'profile_picture',
     ];
 
     /**
@@ -50,4 +51,20 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+    public function categories()
+    {
+        return $this->hasMany(Category::class);
+    }
+
+    public function accounts()
+    {
+        return $this->hasMany(Account::class);
+    }
+
+    public function budgets()
+    {
+        return $this->hasMany(Budget::class);
+    }
+
 }

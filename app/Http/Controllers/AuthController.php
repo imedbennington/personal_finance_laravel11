@@ -27,7 +27,7 @@ class AuthController extends Controller
 
         if (Auth::attempt($request->only('email', 'password'))) {
             // Login successful, redirect to user profile
-            return redirect()->route('user.profile');
+            return redirect()->route('user-profile');
         }
 
         // Login failed, redirect back with an error
@@ -72,6 +72,8 @@ class AuthController extends Controller
         $user->profile_picture = $profilePicturePath;  // Save profile picture path if available
         $user->save();
 
+
+        Auth::login($user);
         // Redirect to user profile page with a success message
         return redirect()->route('user-profile')->with('success', 'Registration successful!');
     }
@@ -110,6 +112,6 @@ class AuthController extends Controller
             $user->update(['profile_picture' => $path]);
         }
 
-        return redirect()->route('user.profile', $user->id)->with('success', 'User updated successfully.');
+        return redirect()->route('user-profile', $user->id)->with('success', 'User updated successfully.');
     }
 }

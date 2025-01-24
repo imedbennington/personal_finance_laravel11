@@ -12,7 +12,8 @@ class AccountController extends Controller
      */
     public function index()
     {
-        $accounts = Account::all();
+        //$accounts = Account::all();
+        $accounts = Account::where('user_id', Auth::id())->get();
         return view('Users Frontend Theme.accounts.get_accounts', compact('accounts'));
         //, compact('accounts'));
     }
@@ -95,7 +96,7 @@ class AccountController extends Controller
         return redirect()->back()->with('success', 'Account updated successfully.');
     }
 
-    
+
 
     public function get_info()
     {

@@ -149,16 +149,6 @@
                 <nav class="navbar navbar-expand gap-3">
                     <div class="mobile-toggle-menu"><i class='bx bx-menu'></i>
                     </div>
-
-                    <div class="position-relative search-bar d-lg-block d-none" data-bs-toggle="modal"
-                        data-bs-target="#SearchModal">
-                        <input class="form-control px-5" disabled type="search" placeholder="Search">
-                        <span
-                            class="position-absolute top-50 search-show ms-3 translate-middle-y start-0 top-50 fs-5"><i
-                                class='bx bx-search'></i></span>
-                    </div>
-
-
                     <div class="top-menu ms-auto">
                         <ul class="navbar-nav align-items-center gap-1">
                             <li class="nav-item mobile-search-icon d-flex d-lg-none" data-bs-toggle="modal"
@@ -802,7 +792,7 @@
                     <div class="user-box dropdown px-3">
                         <a class="d-flex align-items-center nav-link dropdown-toggle gap-3 dropdown-toggle-nocaret"
                             href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            <img src="{{ auth()->user()->profile_picture ? asset('storage/' . auth()->user()->profile_picture) : asset('assets/images/avatars/avatar-2.png') }}"
+                            <img src="{{ auth()->user()->profile_picture ? asset('storage/profile_pictures/' . auth()->user()->profile_picture) : asset('assets/images/avatars/avatar-2.png') }}"
                                 class="user-img" alt="user avatar">
                         </a>
                         <div class="user-info">
@@ -895,12 +885,7 @@
                                                 <input type="email" class="form-control" id="input4" placeholder="Email" name="email" value="{{ old('email', $usr->email) }}">
                                             </div>
                                             <div class="col-md-12">
-                                                <label for="input5" class="form-label">Password</label>
-                                                <input type="password" class="form-control" id="input5" placeholder="Password" name="password">
-                                                <small class="form-text text-muted">Leave blank to keep the current password.</small>
-                                            </div>
-                                            <div class="col-md-12">
-                                                <label for="input6" class="form-label">DOB</label>
+                                                <label for="input6" class="form-label">Date of Birth</label>
                                                 <input type="date" class="form-control datepicker" name="dob" value="{{ old('dob', $usr->dob) }}">
                                             </div>
                                             <div class="col-md-12">
@@ -963,87 +948,7 @@
     <!--end wrapper-->
 
     <!-- search modal -->
-    <div class="modal" id="SearchModal" tabindex="-1">
-        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-fullscreen-md-down">
-            <div class="modal-content">
-                <div class="modal-header gap-2">
-                    <div class="position-relative popup-search w-100">
-                        <input class="form-control form-control-lg ps-5 border border-3 border-primary" type="search"
-                            placeholder="Search">
-                        <span
-                            class="position-absolute top-50 search-show ms-3 translate-middle-y start-0 top-50 fs-4"><i
-                                class='bx bx-search'></i></span>
-                    </div>
-                    <button type="button" class="btn-close d-md-none" data-bs-dismiss="modal"
-                        aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <div class="search-list">
-                        <p class="mb-1">Html Templates</p>
-                        <div class="list-group">
-                            <a href="javascript:;"
-                                class="list-group-item list-group-item-action active align-items-center d-flex gap-2 py-1"><i
-                                    class='bx bxl-angular fs-4'></i>Best Html Templates</a>
-                            <a href="javascript:;"
-                                class="list-group-item list-group-item-action align-items-center d-flex gap-2 py-1"><i
-                                    class='bx bxl-vuejs fs-4'></i>Html5 Templates</a>
-                            <a href="javascript:;"
-                                class="list-group-item list-group-item-action align-items-center d-flex gap-2 py-1"><i
-                                    class='bx bxl-magento fs-4'></i>Responsive Html5 Templates</a>
-                            <a href="javascript:;"
-                                class="list-group-item list-group-item-action align-items-center d-flex gap-2 py-1"><i
-                                    class='bx bxl-shopify fs-4'></i>eCommerce Html Templates</a>
-                        </div>
-                        <p class="mb-1 mt-3">Web Designe Company</p>
-                        <div class="list-group">
-                            <a href="javascript:;"
-                                class="list-group-item list-group-item-action align-items-center d-flex gap-2 py-1"><i
-                                    class='bx bxl-windows fs-4'></i>Best Html Templates</a>
-                            <a href="javascript:;"
-                                class="list-group-item list-group-item-action align-items-center d-flex gap-2 py-1"><i
-                                    class='bx bxl-dropbox fs-4'></i>Html5 Templates</a>
-                            <a href="javascript:;"
-                                class="list-group-item list-group-item-action align-items-center d-flex gap-2 py-1"><i
-                                    class='bx bxl-opera fs-4'></i>Responsive Html5 Templates</a>
-                            <a href="javascript:;"
-                                class="list-group-item list-group-item-action align-items-center d-flex gap-2 py-1"><i
-                                    class='bx bxl-wordpress fs-4'></i>eCommerce Html Templates</a>
-                        </div>
-                        <p class="mb-1 mt-3">Software Development</p>
-                        <div class="list-group">
-                            <a href="javascript:;"
-                                class="list-group-item list-group-item-action align-items-center d-flex gap-2 py-1"><i
-                                    class='bx bxl-mailchimp fs-4'></i>Best Html Templates</a>
-                            <a href="javascript:;"
-                                class="list-group-item list-group-item-action align-items-center d-flex gap-2 py-1"><i
-                                    class='bx bxl-zoom fs-4'></i>Html5 Templates</a>
-                            <a href="javascript:;"
-                                class="list-group-item list-group-item-action align-items-center d-flex gap-2 py-1"><i
-                                    class='bx bxl-sass fs-4'></i>Responsive Html5 Templates</a>
-                            <a href="javascript:;"
-                                class="list-group-item list-group-item-action align-items-center d-flex gap-2 py-1"><i
-                                    class='bx bxl-vk fs-4'></i>eCommerce Html Templates</a>
-                        </div>
-                        <p class="mb-1 mt-3">Online Shoping Portals</p>
-                        <div class="list-group">
-                            <a href="javascript:;"
-                                class="list-group-item list-group-item-action align-items-center d-flex gap-2 py-1"><i
-                                    class='bx bxl-slack fs-4'></i>Best Html Templates</a>
-                            <a href="javascript:;"
-                                class="list-group-item list-group-item-action align-items-center d-flex gap-2 py-1"><i
-                                    class='bx bxl-skype fs-4'></i>Html5 Templates</a>
-                            <a href="javascript:;"
-                                class="list-group-item list-group-item-action align-items-center d-flex gap-2 py-1"><i
-                                    class='bx bxl-twitter fs-4'></i>Responsive Html5 Templates</a>
-                            <a href="javascript:;"
-                                class="list-group-item list-group-item-action align-items-center d-flex gap-2 py-1"><i
-                                    class='bx bxl-vimeo fs-4'></i>eCommerce Html Templates</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+
     <!-- end search modal -->
 
 

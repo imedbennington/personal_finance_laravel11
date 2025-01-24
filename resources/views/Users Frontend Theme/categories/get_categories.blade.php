@@ -10,7 +10,7 @@
     <div class="row full-height">
         <div class="col-lg-8">
             <div class="card">
-                <h1>Transactions</h1>
+                <h1>Categories</h1>
                 <a href="{{ route('categories.create') }}" class="btn btn-primary mb-3">Add category</a>
                 @if (session('success'))
                     <div class="alert alert-success">
@@ -21,6 +21,8 @@
                 <table class="table table-bordered">
                     <thead>
                         <tr>
+                            <th>Number</th>
+                            <th>ID</th>
                             <th>Name</th>
                             <th>Type</th>
                             <th>Actions</th>
@@ -29,6 +31,8 @@
                     <tbody>
                         @foreach ($categories as $category)
                             <tr>
+                                <td>{{ $loop->iteration }}</td>
+                                <td>{{ $category->id }}</td>
                                 <td>{{ $category->name }}</td>
                                 <td>{{ ucfirst($category->type) }}</td>
                                 <td>

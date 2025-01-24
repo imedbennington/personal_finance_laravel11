@@ -12,7 +12,14 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('transactions', function (Blueprint $table) {
-            $table->foreignId('category_id')->constrained();
+            // Drop the existing foreign key constraint
+            $table->dropForeign(['category_id']);
+
+            // Re-add the foreign key with ON DELETE CASCADE
+            $table->foreign('category_id')
+                  ->references('id')
+                  ->on('categories')
+                  ->onDelete('cascade');
         });
     }
 
@@ -22,8 +29,13 @@ return new class extends Migration
     public function down(): void
     {
         Schema::table('transactions', function (Blueprint $table) {
+            // Drop the ON DELETE CASCADE foreign key
             $table->dropForeign(['category_id']);
-            $table->dropColumn('category_id');
+
+            // Re-add the foreign key without ON DELETE CASCADE
+            $table->foreign('category_id')
+                  ->references('id')
+                  ->on('categories');
         });
     }
 };

@@ -44,7 +44,7 @@
                             <label for="inputName" class="col-sm-3 col-form-label"> Name</label>
                             <div class="col-sm-9">
                                 <input type="text" class="form-control" id="inputName" name="name"
-                                    placeholder="Enter Account Name" required>
+                                    placeholder="Enter Category Name" required>
                             </div>
                         </div>
                         <div class="row mb-3">

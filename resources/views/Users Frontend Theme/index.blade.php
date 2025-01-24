@@ -370,7 +370,7 @@
 
                             </ul>
                             <div class="card-body">
-                                <a href="{{ route('register') }}" class="btn btn-primary">REGISTER NOW</a>
+                                <a href="{{ route('register') }}">CREATE FREE ACCOUNT</a>
                             </div>
                             <div class="card-body">
                                 <a href="{{ route('login_user') }}" class="btn btn-primary">LOGIN</a>

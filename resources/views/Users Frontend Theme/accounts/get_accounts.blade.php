@@ -10,7 +10,7 @@
     <div class="row full-height">
         <div class="col-lg-8 mx-auto">
             <div class="card">
-            <h6 class="mb-0 text-uppercase">DataTable Example</h6>
+            <h6 class="mb-0 text-uppercase">Your bank accounts</h6>
             <hr />
             <div class="card">
                 <div class="card-body">
@@ -28,7 +28,7 @@
                             <tbody>
                                 @foreach ($accounts as $account)
                                     <tr>
-                                        <td>{{ $account->id }}</td>
+                                        <td>{{ $loop->iteration }}</td>
                                         <td>{{ $account->name }}</td>
                                         <td>{{ $account->balance }}</td>
                                         <td>{{ $account->type }}</td>

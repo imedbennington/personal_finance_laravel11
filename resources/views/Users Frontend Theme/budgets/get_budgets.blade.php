@@ -20,6 +20,7 @@
                                 <thead>
                                     <tr>
                                         <th>Number</th>
+                                        <th>ID</th>
                                         <th>Category</th>
                                         <th>Amount</th>
                                         <th>Start date</th>
@@ -30,6 +31,7 @@
                                 <tbody>
                                     @foreach ($budgets as $budget)
                                         <tr>
+                                            <td>{{ $loop->iteration }}</td>
                                             <td>{{ $budget->id }}</td>
                                             <td>{{ $budget->category->name ?? 'No category' }}</td>
                                             <td>{{ $budget->amount }}</td>
@@ -41,15 +43,15 @@
                                                     class="btn btn-primary btn-sm">Edit</a>
 
                                                 <!-- Delete button -->
-                                                <form action="{{ route('delete_account', $budget->id) }}" method="POST"
-                                                    style="display:inline-block;">
+                                                <form action="{{ route('budgets.destroy', $budget->id) }}" method="POST" style="display:inline-block;">
                                                     @csrf
                                                     @method('DELETE')
                                                     <button type="submit" class="btn btn-danger btn-sm"
-                                                        onclick="return confirm('Are you sure you want to delete this account?')">
+                                                        onclick="return confirm('Are you sure you want to delete this budget?')">
                                                         Delete
                                                     </button>
                                                 </form>
+
 
                                             </td>
                                         </tr>

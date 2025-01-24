@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Category;
+use App\Models\Account;
+use Illuminate\Support\Facades\Auth;
 class CategoryController extends Controller
 {
     /**
@@ -11,7 +13,8 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        $categories = Category::all();
+        //$categories = Category::all();
+        $categories = Category::where('user_id', Auth::id())->get();
         return view('Users Frontend Theme.categories.get_categories', compact('categories'));
     }
 
@@ -45,7 +48,7 @@ class CategoryController extends Controller
      */
     public function show(string $id)
     {
-        
+
     }
 
     /**

@@ -5,18 +5,26 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Budget;
 use App\Models\Category;
+use Illuminate\Support\Facades\Auth;
 class BudgetController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
-    {
-        $categories = Category::all(); // Retrieve all categories from the database
-        $budgets = Budget::with('category')->get(); // Optional: Retrieve budgets with their categories
+{
+    // Retrieve categories associated with the authenticated user
+    $categories = Category::where('user_id', Auth::id())->get();
 
-        return view('Users Frontend Theme.budgets.get_budgets', compact('categories', 'budgets'));
-    }
+    // Retrieve budgets for the authenticated user and eager load the category relationship
+    $budgets = Budget::where('user_id', Auth::id())
+                     ->with('category') // Eager load the associated category
+                     ->get();
+
+    // Return the view with categories and budgets
+    return view('Users Frontend Theme.budgets.get_budgets', compact('categories', 'budgets'));
+}
+
 
 
     /**
@@ -24,8 +32,10 @@ class BudgetController extends Controller
      */
     public function create()
     {
-        $categories = Category::all(); // Retrieve all categories from the database
-        $budgets = Budget::with('category')->get();
+        $categories = Category::where('user_id', Auth::id())->get();
+        $budgets = Budget::where('user_id', Auth::id())
+                     ->with('category') // Eager load the associated category
+                     ->get();
         return view('Users Frontend Theme.budgets.add_budget', compact('categories', 'budgets'));
     }
 
@@ -104,8 +114,18 @@ if (!$category) {
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Budget $budget)
     {
-        //
+        // Authorization
+        if ($budget->user_id !== Auth::id()) {
+            return redirect()->route('budgets.index')->with('error', 'You are not authorized to delete this budget.');
+        }
+
+        // Delete the budget
+        $budget->delete();
+
+        // Redirect after deletion
+        return redirect()->route('budgets.index')->with('success', 'Budget deleted successfully.');
     }
+
 }

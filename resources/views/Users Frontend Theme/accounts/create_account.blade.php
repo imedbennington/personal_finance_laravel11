@@ -11,7 +11,7 @@
         <div class="col-lg-8 mx-auto">
             <div class="card">
                 <div class="card-header px-4 py-3">
-                    <h5 class="mb-0">jQuery Validation</h5>
+                    <h5 class="mb-0">Add a new bank account </h5>
                 </div>
                 @if (session('success'))
                     <div class="alert alert-success alert-dismissible fade show" role="alert">

@@ -11,11 +11,17 @@ class Category extends Model
     protected $fillable = [
         'name',
         'type',
+        'user_id',
     ];
 
     // A category can be associated with many transactions
     public function transactions()
     {
         return $this->hasMany(Transaction::class);
+    }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
     }
 }

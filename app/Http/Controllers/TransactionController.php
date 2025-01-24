@@ -31,10 +31,9 @@ class TransactionController extends Controller
 
     /**
      * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
-    {
-       // Validate the request
+     */public function store(Request $request)
+{
+    // Validate the request
     $request->validate([
         'account_id' => 'required|exists:accounts,id',
         'user_id' => 'required|exists:users,id',
@@ -45,12 +44,29 @@ class TransactionController extends Controller
         'description' => 'nullable|string|max:500',
     ]);
 
-// Find the category by its ID (category_id is passed from the select dropdown)
-$category = Category::find($request->category_id);
+    // Find the category by its ID (category_id is passed from the select dropdown)
+    $category = Category::find($request->category_id);
 
     if (!$category) {
         return back()->withErrors(['category_name' => 'Category not found.']);
     }
+
+    // Find the account to modify the balance
+    $account = Account::find($request->account_id);
+
+    if (!$account) {
+        return back()->withErrors(['account' => 'Account not found.']);
+    }
+
+    // Update the account balance based on the transaction type
+    if ($request->type == 'income') {
+        $account->balance += $request->amount; // Add amount to account balance
+    } else {
+        $account->balance -= $request->amount; // Subtract amount from account balance
+    }
+
+    // Save the updated account balance
+    $account->save();
 
     // Create a new transaction
     $transaction = Transaction::create([
@@ -66,7 +82,8 @@ $category = Category::find($request->category_id);
     // Redirect back with success message
     return redirect()->route('transactions.index')
         ->with('success', 'Transaction created successfully.');
-    }
+}
+
 
     /**
      * Display the specified resource.
